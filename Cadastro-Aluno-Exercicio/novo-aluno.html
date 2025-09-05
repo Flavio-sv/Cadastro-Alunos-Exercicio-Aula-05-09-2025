@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Aluno - Sistema de Cadastro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Cadastro de Novo Aluno</h1>
+
+            <form id="formAluno" class="student-form">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="idade">Idade:</label>
+                    <input type="number" id="idade" name="idade" min="1" max="100" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="curso">Curso:</label>
+                    <select id="curso" name="curso" required>
+                        <option value="">Selecione um curso</option>
+                        <option value="Engenharia">Engenharia</option>
+                        <option value="Medicina">Medicina</option>
+                        <option value="Direito">Direito</option>
+                        <option value="Administração">Administração</option>
+                        <option value="Ciência da Computação">Ciência da Computação</option>
+                        <option value="Enfermagem">Enfermagem</option>
+                        <option value="Psicologia">Psicologia</option>
+                        <option value="Arquitetura">Arquitetura</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="fase">Fase:</label>
+                    <select id="fase" name="fase" required>
+                        <option value="">Selecione a fase</option>
+                        <option value="1ª Fase">1ª Fase</option>
+                        <option value="2ª Fase">2ª Fase</option>
+                        <option value="3ª Fase">3ª Fase</option>
+                        <option value="4ª Fase">4ª Fase</option>
+                        <option value="5ª Fase">5ª Fase</option>
+                        <option value="6ª Fase">6ª Fase</option>
+                        <option value="7ª Fase">7ª Fase</option>
+                        <option value="8ª Fase">8ª Fase</option>
+                        <option value="9ª Fase">9ª Fase</option>
+                        <option value="10ª Fase">10ª Fase</option>
+                    </select>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-outline" onclick="window.location.href='index.html'">
+                        Voltar ao Menu
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="limparFormulario()">
+                        Limpar
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        Cadastrar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

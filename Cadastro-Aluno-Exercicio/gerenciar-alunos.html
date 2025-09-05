@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Alunos - Sistema de Cadastro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="manage-container">
+            <h1>Gerenciar Alunos</h1>
+            
+            <div class="search-section">
+                <input type="text" id="searchInput" placeholder="Buscar aluno por nome...">
+                <button class="btn btn-primary" onclick="buscarAluno()">Buscar</button>
+                <button class="btn btn-secondary" onclick="mostrarTodosAlunos()">Mostrar Todos</button>
+            </div>
+            
+            <div class="table-container">
+                <table id="tabelaAlunos" class="students-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Idade</th>
+                            <th>Curso</th>
+                            <th>Fase</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabela">
+                        <!-- Os dados dos alunos serão inseridos aqui pelo JavaScript -->
+                    </tbody>
+                </table>
+                
+                <div id="mensagemVazia" class="empty-message" style="display: none;">
+                    <p>Nenhum aluno cadastrado ainda.</p>
+                    <p><a href="novo-aluno.html">Clique aqui para cadastrar o primeiro aluno</a></p>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="btn btn-outline" onclick="window.location.href='index.html'">
+                    Voltar ao Menu Principal
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal para editar aluno -->
+    <div id="modalEdicao" class="modal">
+        <div class="modal-content">
+            <span class="close-edit">&times;</span>
+            <h2>Editar Aluno</h2>
+            <form id="formEdicao" class="student-form">
+                <input type="hidden" id="editId">
+                
+                <div class="form-group">
+                    <label for="editNome">Nome:</label>
+                    <input type="text" id="editNome" name="nome" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editIdade">Idade:</label>
+                    <input type="number" id="editIdade" name="idade" min="1" max="100" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editCurso">Curso:</label>
+                    <select id="editCurso" name="curso" required>
+                        <option value="">Selecione um curso</option>
+                        <option value="Engenharia">Engenharia</option>
+                        <option value="Medicina">Medicina</option>
+                        <option value="Direito">Direito</option>
+                        <option value="Administração">Administração</option>
+                        <option value="Ciência da Computação">Ciência da Computação</option>
+                        <option value="Enfermagem">Enfermagem</option>
+                        <option value="Psicologia">Psicologia</option>
+                        <option value="Arquitetura">Arquitetura</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editFase">Fase:</label>
+                    <select id="editFase" name="fase" required>
+                        <option value="">Selecione a fase</option>
+                        <option value="1ª Fase">1ª Fase</option>
+                        <option value="2ª Fase">2ª Fase</option>
+                        <option value="3ª Fase">3ª Fase</option>
+                        <option value="4ª Fase">4ª Fase</option>
+                        <option value="5ª Fase">5ª Fase</option>
+                        <option value="6ª Fase">6ª Fase</option>
+                        <option value="7ª Fase">7ª Fase</option>
+                        <option value="8ª Fase">8ª Fase</option>
+                        <option value="9ª Fase">9ª Fase</option>
+                        <option value="10ª Fase">10ª Fase</option>
+                    </select>
+                </div>
+                
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="fecharModalEdicao()">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        Salvar Alterações
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Modal de confirmação para exclusão -->
+    <div id="modalConfirmacao" class="modal">
+        <div class="modal-content">
+            <h2>Confirmar Exclusão</h2>
+            <p id="mensagemConfirmacao"></p>
+            <div class="form-buttons">
+                <button class="btn btn-secondary" onclick="fecharModalConfirmacao()">
+                    Cancelar
+                </button>
+                <button class="btn btn-danger" onclick="confirmarExclusao()">
+                    Excluir
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal de mensagem -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
